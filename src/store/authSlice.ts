@@ -19,12 +19,11 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action: PayloadAction<{ email: string; password: string }>) => {
-      // Simulate authentication
       state.isAuthenticated = true
       state.user = {
         name: 'John Doe',
         email: action.payload.email,
-        avatar: '/placeholder.svg?height=100&width=100',
+        avatar: '/avatar.png',
       }
     },
     logout: (state) => {
