@@ -9,11 +9,11 @@ export default function Sidebar() {
   const pendingTasks = todos.filter(todo => !todo.completed).length
 
   return (
-    <aside className="w-64 bg-background border-r h-screen p-4">
+    <aside className="w-64 bg-background border-r h-screen p-4 hidden md:block">
       <div className="flex items-center space-x-4 mb-8">
         {user?.avatar && (
           <Image
-            src={user.avatar}
+            src={user.avatar || "/placeholder.svg"}
             alt="Profile"
             width={48}
             height={48}

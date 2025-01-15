@@ -15,24 +15,24 @@ export default function TaskItem({ todo }: TaskItemProps) {
   const dispatch = useDispatch()
 
   return (
-    <div className="flex items-center justify-between p-4 border rounded-lg hover:bg-accent/50 transition-colors">
-      <div className="flex items-center space-x-4 flex-1">
+    <div className="flex items-center justify-between p-3 md:p-4 border rounded-lg hover:bg-accent/50 transition-colors">
+      <div className="flex items-center space-x-3 md:space-x-4 flex-1">
         <Checkbox
           checked={todo.completed}
           onCheckedChange={() => dispatch(toggleTodo(todo.id))}
         />
         <div className="flex flex-col">
-          <span className={`${todo.completed ? 'line-through text-muted-foreground' : ''}`}>
+          <span className={`text-sm md:text-base ${todo.completed ? 'line-through text-muted-foreground' : ''}`}>
             {todo.title}
           </span>
           {todo.dueDate && (
-            <span className="text-sm text-muted-foreground">
+            <span className="text-xs md:text-sm text-muted-foreground">
               Due: {format(new Date(todo.dueDate), 'MMM d, yyyy')}
             </span>
           )}
         </div>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-1 md:space-x-2">
         <Button
           variant="ghost"
           size="icon"
@@ -42,7 +42,7 @@ export default function TaskItem({ todo }: TaskItemProps) {
           }))}
         >
           <Star
-            className={`w-5 h-5 ${todo.priority === 'high' ? 'fill-yellow-400 text-yellow-400' : ''}`}
+            className={`w-4 h-4 md:w-5 md:h-5 ${todo.priority === 'high' ? 'fill-yellow-400 text-yellow-400' : ''}`}
           />
         </Button>
         <Button
@@ -51,7 +51,7 @@ export default function TaskItem({ todo }: TaskItemProps) {
           onClick={() => dispatch(deleteTodo(todo.id))}
           className="text-destructive hover:text-destructive"
         >
-          <Trash2 className="w-5 h-5" />
+          <Trash2 className="w-4 h-4 md:w-5 md:h-5" />
         </Button>
       </div>
     </div>
